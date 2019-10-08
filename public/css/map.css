@@ -1,0 +1,43 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.search {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    z-index: 1;
+}
+
+.search input {
+    overflow: hidden;
+    text-align: center;
+    height: 40px;
+    vertical-align: middle;
+    color: rgb(86, 86, 86);
+    font-family: Roboto, Arial, sans-serif;
+    user-select: none;
+    font-size: 18px;
+    background-color: rgb(255, 255, 255);
+    padding: 0px 17px;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    background-clip: padding-box;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    min-width: 66px;
+    border-left: 0px;
+    border: none;
+}
+.map-search {
+    width: 300px;
+}
+
+.search input[type=submit] {
+    cursor: pointer;
+}
+
+#map, .map-container{
+    height: 100%;
+}
