@@ -175,6 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        App\Providers\AddressModelServiceProvider::class,
+        App\Libraries\GeoCoding\GeoCodingServiceProvider::class
     ],
 
     /*
