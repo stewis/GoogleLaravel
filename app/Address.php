@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-    public function restaurant()
+    public function coordinate()
     {
         return $this->hasOne('App\Coordinate');
     }

@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coordinates extends Model
 {
-    public function restaurant()
+    public function address()
     {
         return $this->belongsTo('App\Address');
     }
