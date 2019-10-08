@@ -3,10 +3,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Address extends Model
+class Coordinates extends Model
 {
     public function restaurant()
     {
-        return $this->hasOne('App\Coordinate');
+        return $this->belongsTo('App\Address');
     }
 }
