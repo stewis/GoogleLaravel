@@ -34,7 +34,7 @@ class GeoCodeJob implements ShouldQueue
             [
                 'address_id' => $this->address->id
             ], [
-                'position' => $coordinatesModel
+                'position' => $coordinatesModel->toSQL()
             ]
         );
     }

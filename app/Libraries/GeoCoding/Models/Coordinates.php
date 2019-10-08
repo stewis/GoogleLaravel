@@ -6,6 +6,7 @@ namespace App\Libraries\GeoCoding\Models;
 
 use App\Libraries\GeoCoding\Exceptions\LatitudeOutSideRange;
 use App\Libraries\GeoCoding\Exceptions\LongitudeOutSideRange;
+use Illuminate\Support\Facades\DB;
 
 class Coordinates
 {
@@ -42,7 +43,11 @@ class Coordinates
 
     public function __toString()
     {
-        return $this->getLongitude().' '.$this->getLatitude();
+        return $this->getLongitude() . ' ' . $this->getLatitude();
     }
 
+    public function toSQL()
+    {
+        return DB::Raw('POINT(' . $this->getLongitude() . ', ' . $this->getLatitude() . ')');
+    }
 }
