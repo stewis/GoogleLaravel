@@ -23,7 +23,7 @@ class Coordinates
         return $this->latitude;
     }
 
-    public function setLongitude($longitude)
+    public function setLongitude(float $longitude)
     {
         if ($longitude <= -180 && $longitude >= -180) {
             throw new LatitudeOutSideRange();
@@ -32,7 +32,7 @@ class Coordinates
         return $this;
     }
 
-    public function setLatitude($latitude)
+    public function setLatitude(float $latitude)
     {
         if ($latitude <= -90 && $latitude >= -90) {
             throw new LongitudeOutSideRange();
