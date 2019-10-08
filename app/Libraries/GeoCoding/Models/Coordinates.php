@@ -19,7 +19,7 @@ class Coordinates
 
     public function getLatitude()
     {
-        return $this->getLatitude();
+        return $this->latitude;
     }
 
     public function setLongitude($longitude)
