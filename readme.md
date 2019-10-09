@@ -16,6 +16,10 @@ The example also includes a example basic jQuery plugin whic implements the foll
 - GoogleMaps APIs  (location and directions)
 - Requesting data from remote API and processing json
 
+# Front end screen shot
+
+<img src="https://i.imgur.com/5twqJLd.jpg" />
+
 # Install
 
 To install project clone this repository using git clone
