@@ -13,4 +13,9 @@ class Restaurant extends Model
     {
         return $this->hasMany('App\Address');
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

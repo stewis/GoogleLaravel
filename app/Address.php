@@ -23,4 +23,13 @@ class Address extends Model
         return $this->belongsTo('App\Restaurant');
     }
 
+    public function __toString()
+    {
+        $address = [];
+        $address[] = $this->address1;
+        $address[] = $this->address2;
+        $address[] = $this->town;
+        $address[] = $this->postcode;
+        return implode(",\n\r", array_filter($address));
+    }
 }

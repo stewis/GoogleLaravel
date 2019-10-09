@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('frontend');
 });
+
+Route::group([
+    'prefix'    => 'backend',
+    'namespace' => 'BackEnd'
+], function() {
+    Route::get('/', [
+        'as'    => 'backend.index',
+        'uses'  => 'BackendController@index'
+    ]);
+});
