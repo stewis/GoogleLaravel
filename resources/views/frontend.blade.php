@@ -11,8 +11,6 @@
     <body>
         <div id="map">
         </div>
-        <div id="map2">
-        </div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API') }}"></script>
         <script src="{{secure_asset('js/restaurantMap.js')}}">
@@ -25,11 +23,6 @@
                     }
                 });
                 $('#map').restaurantMap(
-                    {
-                        'apiKey': '{{ env('GOOGLE_API') }}'
-                    }
-                );
-                $('#map2').restaurantMap(
                     {
                         'apiKey': '{{ env('GOOGLE_API') }}'
                     }
