@@ -14,7 +14,7 @@
             });
             $('#map').restaurantMap(
                 {
-                    'apiKey': 'AIzaSyANw4md06yWy7JRPr1oVZG0pM2grwQK318'
+                    'apiKey': '{{ env('GOOGLE_API') }}'
                 }
             );
         });
