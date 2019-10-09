@@ -16,6 +16,11 @@ class GeoCodeJob implements ShouldQueue
 
     protected $address;
 
+    /**
+     * GeoCodeJob constructor.
+     * Sets address for use in handle method
+     * @param Address $address
+     */
     public function __construct(Address $address)
     {
         $this->address = $address;
@@ -23,6 +28,9 @@ class GeoCodeJob implements ShouldQueue
 
     /**
      * Execute the job.
+     * Will lookup and set the spatial data for the current postcode
+     *
+     * Todo:  Use full address in lookup (using postcode as seed method in this example generates mock data)
      *
      * @return void
      */

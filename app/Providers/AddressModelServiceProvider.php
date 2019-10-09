@@ -20,7 +20,7 @@ class AddressModelServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap services.
-     *
+     * Register Address observer
      * @return void
      */
     public function boot()

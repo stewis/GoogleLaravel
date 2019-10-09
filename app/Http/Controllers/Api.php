@@ -10,6 +10,15 @@ use App\Libraries\GeoCoding\GeoCodingFacade;
 
 class Api extends Controller
 {
+    /**
+     * Accepts search string does goecode lookup
+     * and returns json object for front end processing
+     *
+     * Todo:  create data structure/model for json response
+     *
+     * @param apiSearchRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getClosest(apiSearchRequest $request)
     {
         $coordinatesModel = GeoCodingFacade::setApiKey(env('GOOGLE_API'))

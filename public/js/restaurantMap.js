@@ -2,6 +2,9 @@
 
 (function($) {
     var instances = [];
+
+    // initalise plugin on given id
+
     $.fn.restaurantMap = function (options) {
         instances[$(this).prop('id')] = $.extend({
             zoom: 7,
@@ -13,7 +16,10 @@
 
         }, options);
 
+        // we use instance to store the settings of the map instance as we can have multiples
         var instance = instances[$(this).prop('id')];
+
+        // create the map
         instance.map = new google.maps.Map($(this).find('.map-container')[0], {
             zoom: 11,
             center: {
@@ -21,7 +27,12 @@
                 lng: instance.longitude
             }
         });
+
+        // we use element for most methods as this allows us to keep track of which map we are referencing
+
         var element = $(this);
+
+        //attach events
         $(this).find('.search .use-geolocation').on('click', function () {
             element.getUserLocation(element);
         });
@@ -33,10 +44,13 @@
                 element.performSearch(element);
             }
         });
+
+        //  attach directions renderer
         instance.directionsRenderer = new google.maps.DirectionsRenderer()
         instance.directionsRenderer.setMap(instance.map);
     };
 
+    // method will use the users current location and perform search in the callback
     $.fn.getUserLocation = function (element) {
         var instance = instances[element.prop('id')];
         navigator.geolocation.getCurrentPosition(function (position){
@@ -53,12 +67,14 @@
         });
     };
 
+    // sets the users center point for the search
     $.fn.setUserLocation = function (element, position) {
         var instance = instances[element.prop('id')];
         instance.latitude = position.latitude;
         instance.longitude = position.longitude;
     };
 
+    // updates the map center point (not used)
     $.fn.updateMapPosition = function (element) {
         var instance = instances[element.prop('id')];
         let newCenterPoint = new google.maps.LatLng(
@@ -68,6 +84,8 @@
         instance.map.setCenter(newCenterPoint);
     };
 
+    // update search bar using the users current longitude and latitude and sets the bars text to the
+    // human readable address through reverse geocoding
     $.fn.updateSearchBar = function (element) {
         var instance = instances[element.prop('id')];
         var geocoder = new google.maps.Geocoder;
@@ -92,6 +110,7 @@
         );
     };
 
+    // send a request to our API using the text in the search bar so we can get the closest result inb our database
     $.fn.performSearch = function(element) {
         var instance = instances[element.prop('id')];
         $.post('/api/get-closest', {
@@ -107,6 +126,7 @@
         });
     };
 
+    // not used but could be used to display the to marker on map
     $.fn.setToMarker = function(element) {
         var instance = instances[element.prop('id')];
         if (!!instance.toMarker) {
@@ -123,6 +143,7 @@
         });
     };
 
+    // ask google to draw the route on our map using the users data and the data returned by our API
     $.fn.drawRoute = function(element) {
         var instance = instances[element.prop('id')];
 
