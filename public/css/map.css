@@ -39,8 +39,8 @@ body {
     cursor: pointer;
 }
 
-#map,#map2{
-    height: 50%;
+#map{
+    height: 100%;
 }
 .map-container{
     height: 100%;
