@@ -16,11 +16,18 @@
 
         }, options);
 
+
+        // we use element for most methods as this allows us to keep track of which map we are referencing
+
+        var element = $(this);
+
         // we use instance to store the settings of the map instance as we can have multiples
         var instance = instances[$(this).prop('id')];
 
+        element.createUi(element);
+
         // create the map
-        instance.map = new google.maps.Map($(this).find('.map-container')[0], {
+        instance.map = new google.maps.Map(instance.mapContainer, {
             zoom: 11,
             center: {
                 lat: instance.latitude,
@@ -28,18 +35,15 @@
             }
         });
 
-        // we use element for most methods as this allows us to keep track of which map we are referencing
-
-        var element = $(this);
 
         //attach events
-        $(this).find('.search .use-geolocation').on('click', function () {
+        $(instance.useCurrentLocation).on('click', function () {
             element.getUserLocation(element);
         });
-        $(this).find('.search .search-button').on('click', function () {
+        $(instance.searchButton).on('click', function () {
             element.performSearch(element);
         });
-        $(this).find('.search .map-search').on('keypress', function (event) {
+        $(instance.searchBar).on('keypress', function (event) {
             if (event.which == 13) {
                 element.performSearch(element);
             }
@@ -98,7 +102,7 @@
             function(results, status) {
                 if (status === 'OK') {
                     if (results[0]) {
-                        element.find('.search .map-search')[0].value = results[0].formatted_address;
+                        instance.searchBar.value = results[0].formatted_address;
                         element.performSearch(element);
                     } else {
                         alert('No results found');
@@ -114,7 +118,7 @@
     $.fn.performSearch = function(element) {
         var instance = instances[element.prop('id')];
         $.post('/api/get-closest', {
-            search: element.find('.search .map-search')[0].value
+            search: instance.searchBar.value
         }).done(function (response) {
             instance.toLocation = response;
             element.setUserLocation(element,
@@ -171,6 +175,38 @@
                 instance.directionsRenderer.setMap(instance.map);
             }
         });
+    };
+
+    $.fn.createUi = function(element) {
+        var instance = instances[element.prop('id')];
+
+        instance.mapContainer = $( "<div />" )
+            .addClass('map-container')[0];
+
+        instance.serachContainer = $( "<div />" )
+            .addClass('search')[0];
+
+        instance.searchBar = $( "<input />" )
+            .addClass('map-search')
+            .prop('type', 'text')
+            .prop('placeholder', 'Search closest restaurants')[0];
+
+        instance.searchButton = $( "<input />" )
+            .addClass('search-button')
+            .prop('type', 'submit')
+            .prop('value', 'Search')[0];
+
+        instance.useCurrentLocation = $( "<input />" )
+            .addClass('use-geolocation')
+            .prop('type', 'submit')
+            .prop('value', 'Use current location')[0];
+
+
+        $(this).append(instance.serachContainer);
+        $(this).append(instance.mapContainer);
+        $(instance.serachContainer).append(instance.searchBar);
+        $(instance.serachContainer).append(instance.searchButton);
+        $(instance.serachContainer).append(instance.useCurrentLocation);
     };
 
 }(jQuery));
