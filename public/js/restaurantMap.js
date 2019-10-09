@@ -35,19 +35,7 @@
             }
         });
 
-
-        //attach events
-        $(instance.useCurrentLocation).on('click', function () {
-            element.getUserLocation(element);
-        });
-        $(instance.searchButton).on('click', function () {
-            element.performSearch(element);
-        });
-        $(instance.searchBar).on('keypress', function (event) {
-            if (event.which == 13) {
-                element.performSearch(element);
-            }
-        });
+        element.addEvents(element);
 
         //  attach directions renderer
         instance.directionsRenderer = new google.maps.DirectionsRenderer()
@@ -191,15 +179,20 @@
             .prop('type', 'text')
             .prop('placeholder', 'Search closest restaurants')[0];
 
-        instance.searchButton = $( "<input />" )
+        instance.searchButton = $( "<button />" )
             .addClass('search-button')
-            .prop('type', 'submit')
-            .prop('value', 'Search')[0];
+            .prop('title', 'Search')
+            .html('<i class="fas fa-search" aria-hidden="true"></i>')[0];
 
-        instance.useCurrentLocation = $( "<input />" )
+        instance.settingsButton = $( "<button />" )
+            .addClass('settings-button')
+            .prop('title', 'Settings')
+            .html('<i class="fas fa-cog" aria-hidden="true"></i>');
+
+        instance.useCurrentLocation = $( "<button />" )
             .addClass('use-geolocation')
-            .prop('type', 'submit')
-            .prop('value', 'Use current location')[0];
+            .prop('title', 'Search using geolocation')
+            .html('<i class="fas fa-search-location"></i>')[0];
 
 
         $(this).append(instance.serachContainer);
@@ -207,6 +200,29 @@
         $(instance.serachContainer).append(instance.searchBar);
         $(instance.serachContainer).append(instance.searchButton);
         $(instance.serachContainer).append(instance.useCurrentLocation);
+        $(instance.serachContainer).append(instance.settingsButton);
     };
 
+    $.fn.addEvents = function(element) {
+        var instance = instances[element.prop('id')];
+        //attach events
+        $(instance.useCurrentLocation).on('click', function () {
+            element.getUserLocation(element);
+        });
+        $(instance.searchButton).on('click', function () {
+            element.performSearch(element);
+        });
+        $(instance.searchBar).on('keypress', function (event) {
+            if (event.which == 13) {
+                element.performSearch(element);
+            }
+        });
+        $(instance.settingsButton).on('click', function () {
+            element.showSettings(element);
+        });
+    };
+
+    $.fn.showSettings = function(element) {
+        alert('Settings not yet implemented');
+    };
 }(jQuery));
