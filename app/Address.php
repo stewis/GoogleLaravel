@@ -9,4 +9,10 @@ class Address extends Model
     {
         return $this->hasOne('App\Coordinate');
     }
+
+    public function restaurant()
+    {
+        return $this->belongsTo('App\Restaurant');
+    }
+
 }

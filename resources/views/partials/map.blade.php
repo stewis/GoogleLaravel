@@ -7,6 +7,11 @@
     </script>
     <script>
         $(document).ready( function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $('#map').restaurantMap(
                 {
                     'apiKey': 'AIzaSyANw4md06yWy7JRPr1oVZG0pM2grwQK318'

@@ -6,6 +6,7 @@
         </title>
         <link rel="stylesheet" href="{{ secure_asset('css/map.css') }}">
         <script src="https://kit.fontawesome.com/0ca262b039.js" crossorigin="anonymous"></script>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body>
         <div id="map">
