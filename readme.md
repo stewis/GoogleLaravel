@@ -22,9 +22,9 @@ GOOGLE_API=API_KEY_HERE
 
 Note we requirer the following google maps API's
 
-Geocoding API
-Maps JavaScript API
-Directions API
+- Geocoding API
+- Maps JavaScript API
+- Directions API
 
 Next run migrations
 
