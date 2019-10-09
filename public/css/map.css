@@ -5,9 +5,9 @@ body {
 }
 
 .search {
-    position: absolute;
+    position: relative;
     top: 60px;
-    left: 10px;
+    padding-left: 10px;
     z-index: 1;
 }
 
@@ -29,6 +29,7 @@ body {
     min-width: 66px;
     border-left: 0px;
     border: none;
+
 }
 .map-search {
     width: 300px;
@@ -38,6 +39,10 @@ body {
     cursor: pointer;
 }
 
-#map, .map-container{
-    height: 100%;
+#map,#map2{
+    height: 50%;
 }
+.map-container{
+    height: 100%;
+    margin-top: -40px;
+ }
