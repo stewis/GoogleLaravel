@@ -5,6 +5,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Restaurant extends Model
 {
+    protected $fillable = [
+        'name'
+    ];
+
     /**
      * Address relationship
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -5,6 +5,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coordinate extends Model
 {
+
+    protected $fillable = [
+        'address_id',
+        'position'
+    ];
     /**
      * Address relationship
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

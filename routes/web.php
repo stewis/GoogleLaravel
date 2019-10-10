@@ -31,4 +31,12 @@ Route::group([
         'as'    => 'backend.location.update',
         'uses'  => 'BackendController@update'
     ]);
+    Route::get('/location/new', [
+        'as'    => 'backend.location.new',
+        'uses'  => 'BackendController@new'
+    ]);
+    Route::post('/location/save', [
+        'as'    => 'backend.location.create',
+        'uses'  => 'BackendController@create'
+    ]);
 });

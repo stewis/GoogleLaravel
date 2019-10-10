@@ -38,12 +38,16 @@ class GeoCodeJob implements ShouldQueue
     {
         $coordinatesModel = GeoCodingFacade::setApiKey(env('GOOGLE_API'))
             ->getCoordinates($this->address->postcode);
-        Coordinate::firstOrCreate(
+
+
+        Coordinate::updateOrCreate(
             [
                 'address_id' => $this->address->id
             ], [
                 'position' => $coordinatesModel->toSQL()
             ]
         );
+
+
     }
 }

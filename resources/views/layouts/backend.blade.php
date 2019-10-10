@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="py-2 text-right">
-                    <a href="" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add Resturant</a>
+                    <a href="{{ route('backend.location.new') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add Resturant</a>
                 </div>
             </div>
         </div>
