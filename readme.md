@@ -18,7 +18,7 @@ The example also includes a example basic jQuery plugin whic implements the foll
 
 # Front end screen shot
 
-<img src="https://i.imgur.com/5twqJLd.jpg" />
+<img src="https://i.imgur.com/5su4xpr.jpg" />
 
 # Install
 
