@@ -3,7 +3,7 @@
 namespace App\Jobs;
 
 use App\Address;
-use App\Coordinates;
+use App\Coordinate;
 use App\Libraries\GeoCoding\GeoCodingFacade;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -38,7 +38,7 @@ class GeoCodeJob implements ShouldQueue
     {
         $coordinatesModel = GeoCodingFacade::setApiKey(env('GOOGLE_API'))
             ->getCoordinates($this->address->postcode);
-        Coordinates::firstOrCreate(
+        Coordinate::firstOrCreate(
             [
                 'address_id' => $this->address->id
             ], [
