@@ -9,6 +9,17 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        <ul>
+                            <li>{!! \Session::get('success') !!}</li>
+                        </ul>
+                    </div>
+                @endif
+            </div>
+        </div>
     </div>
 @endsection
 

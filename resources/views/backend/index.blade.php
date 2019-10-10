@@ -30,7 +30,9 @@
                                 {{ $location }}
                             </td>
                             <td class="text-right">
-                                <a href="" class="btn-sm btn-primary">
+                                <a href="{{ route('backend.location.edit', [
+                                    'address' => $location
+                                ]) }}" class="btn-sm btn-primary">
                                     Edit
                                 </a>
                             </td>

@@ -23,4 +23,12 @@ Route::group([
         'as'    => 'backend.index',
         'uses'  => 'BackendController@index'
     ]);
+    Route::get('/location/{address}/edit', [
+        'as'    => 'backend.location.edit',
+        'uses'  => 'BackendController@edit'
+    ]);
+    Route::post('/location/{address}/edit/save', [
+        'as'    => 'backend.location.update',
+        'uses'  => 'BackendController@update'
+    ]);
 });
