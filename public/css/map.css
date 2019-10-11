@@ -13,7 +13,7 @@ body {
 
 .search input, .search button {
     overflow: hidden;
-    text-align: center;
+    text-align: left;
     height: 40px;
     vertical-align: middle;
     color: rgb(86, 86, 86);
@@ -32,7 +32,7 @@ body {
 
 }
 .map-search {
-    width: 300px;
+    width: 250px;
 }
 
 .search input[type=submit], .search button {
