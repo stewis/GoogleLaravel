@@ -39,4 +39,12 @@ Route::group([
         'as'    => 'backend.location.create',
         'uses'  => 'BackendController@create'
     ]);
+    Route::get('/location/{address}/delete', [
+        'as'    => 'backend.location.delete',
+        'uses'  => 'BackendController@deleteConfirmation'
+    ]);
+    Route::post('/location/{address}/delete/confirmed', [
+        'as'    => 'backend.location.delete.confirm',
+        'uses'  => 'BackendController@delete'
+    ]);
 });

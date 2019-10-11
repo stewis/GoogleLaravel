@@ -35,6 +35,11 @@
                                 ]) }}" class="btn-sm btn-primary">
                                     Edit
                                 </a>
+                                <a href="{{ route('backend.location.delete', [
+                                    'address' => $location
+                                ]) }}" class="btn-sm btn-danger ml-2">
+                                    Delete
+                                </a>
                             </td>
                         </tr>
                     @endforeach
