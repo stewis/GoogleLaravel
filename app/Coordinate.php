@@ -2,9 +2,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Coordinate extends Model
 {
+    use SoftDeletes;
+
+    protected $fillable = [
+        'address_id',
+        'position'
+    ];
     /**
      * Address relationship
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
