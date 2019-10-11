@@ -12,7 +12,7 @@
 <div class="form-group">
     <label for="restaurant_name" class="form-label">Restaurant Name</label>
     <input type="text" class="form-control" name="restaurant_name" value=" {{
-        old('resturant_name', !empty($address) ? $address->restaurant->name : null )
+        old('restaurant_name', !empty($address) ? $address->restaurant->name : null )
     }}" />
 </div>
 <div class="form-group">
