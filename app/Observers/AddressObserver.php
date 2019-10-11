@@ -32,4 +32,20 @@ class AddressObserver
             GeoCodeJob::dispatch($address);
         }
     }
+
+    /**
+     * Delete linked coordinates for address and delete restaurant if this is the only address left.
+     *
+     * @param Address $address
+     */
+    public function deleting(Address $address)
+    {
+        if (!empty($address->coordinate)) {
+            $address->coordinate->delete();
+        }
+
+        if ($address->restaurant->addresses->count() == 1) {
+            $address->restaurant->delete();
+        }
+    }
 }
