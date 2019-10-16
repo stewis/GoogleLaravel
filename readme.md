@@ -54,7 +54,7 @@ Next run migrations
 php artisan migrate
 ```
 
-As there are no admin user interface the only way to get data in is through seeding the table use
+Youc an seed the database with the following command
 
 ```
 php artisan db:seed
@@ -63,3 +63,8 @@ php artisan db:seed
 This will insert 5 fake resturants with 1 to 3 addresses and create the spatial data for these.
 
 Please note coordinates data is only created when the address model is created or updated.  The observer is not triggered when adding directly into the database.
+
+
+# Admin Interface
+
+You can add your own locations using the backend interface located at /backend
