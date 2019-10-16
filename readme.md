@@ -25,7 +25,7 @@ The example also includes a example basic jQuery plugin whic implements the foll
 To install project clone this repository using git clone
 
 ```
-git clone https://github.com/crowdproperty/platform.git
+git clone https://github.com/stewis/GoogleLaravel.git
 ```
 
 next use compoer and install required packages
