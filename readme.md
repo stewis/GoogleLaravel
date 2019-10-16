@@ -68,3 +68,7 @@ Please note coordinates data is only created when the address model is created o
 # Admin Interface
 
 You can add your own locations using the backend interface located at /backend
+
+# Compatability
+
+This should work in all major browsers but please not firefox appears to perform slower for some reason...  I should really add a loading indicator. 
