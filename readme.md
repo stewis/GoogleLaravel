@@ -42,7 +42,7 @@ Add the following line to your env file:
 GOOGLE_API=API_KEY_HERE
 ```
 
-Note we requirer the following google maps API's
+Note we require the following google maps API's
 
 - Geocoding API
 - Maps JavaScript API
