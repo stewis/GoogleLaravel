@@ -71,4 +71,4 @@ You can add your own locations using the backend interface located at /backend
 
 # Compatability
 
-This should work in all major browsers but please not firefox appears to perform slower for some reason...  I should really add a loading indicator. 
+This should work in all major browsers but firefox appears to perform slower for some reason...  I should really add a loading indicator. 
